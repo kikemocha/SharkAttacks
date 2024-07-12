@@ -1,32 +1,32 @@
 # El Mordiscos Insurance
 
-Para hacer nuestro proyecto nos hemos basado en una empresa de seguros de viaje que necesita hacer un análisis para comprobar cuantos ataques de tiburones hay en cada país, si tiene correlacción el sexo, el mes del año y la localidad.
+![logo_enterprise](./ElMordiscos_insurance.webp)
 
-El programa utiliza el dataset [ataques de tiburores](./GSAF.csv) que está sin limpiar.
+For our project, we have based it on a travel insurance company that needs to analyze shark attacks by country, examining whether there is a correlation with gender, month of the year, and location.
 
-En [main.py](./main.py) está centrado en la limpieza de datos, para las Fechas utiliza patrones de [regex](https://docs.python.org/3/library/re.html), en este proceso hay algunas filas que no cuadran con estos patrones y el valor será cambiado a Nan, para así tener toda la columna con dos formatos, el formato datetime y el formato Nan.
-En [main.py](./main.py) también se utiliza una tecnología nueva como es ollama, en este caso el modelo 'mistral', ollama es una herramienta de NLP('Natural Language Processing) de Meta, que nos permite interpretar variables categóricas y clasificarlas a nuestra conveniencia, en este caso todos los valores de la columna 'Injury', las clasifica en 'Mortal', 'No Mortal' y Nan.
-Con la columna 'Age' transforma todos los valores numéricos en rangos de edad, como son 'Child','Teen', 'Adult', 'Senior'
+The program uses the dataset [shark attacks](./GSAF.csv), which is uncleaned.
 
-[final.ypynb](./final.ipynb) es una libreta de jupyter notebook que con ella es mucho más sencillo de trabajar para hacer gráficos.
+In [main.py](./main.py), the focus is on data cleaning. For dates, it uses regex patterns (see [regex documentation](https://docs.python.org/3/library/re.html)). During this process, some rows do not match these patterns and their values will be changed to NaN, resulting in the entire column having two formats: datetime and NaN.
+In [main.py](./main.py), we also use a new technology called Ollama, specifically the 'mistral' model. Ollama is an NLP ('Natural Language Processing') tool from Meta, which allows us to interpret categorical variables and classify them as we see fit. In this case, all values in the 'Injury' column are classified as 'Fatal', 'Non-Fatal', and NaN.
+For the 'Age' column, all numeric values are transformed into age ranges such as 'Child', 'Teen', 'Adult', and 'Senior'.
 
-# Conclusiones:
+[final.ipynb](./final.ipynb) is a Jupyter notebook that makes it much easier to work with and create visualizations.
 
-Estas gráficas están hechas gracias a la librería matplotlib
+# Conclusions:
+
+These graphs are created using the matplotlib library.
 ![graphic_1](./graphic_1.jpg)
-Esta gráfica muestralos paises con más ataques de tiburón, que son USA, Australia y Sudáfrica. 
+This graph shows the countries with the most shark attacks, which are the USA, Australia, and South Africa.
 
-hipótesis: ¿Los ataques varian depende de los meses?
+Hypothesis: Do attacks vary depending on the month?
 ![graphic_2](./graphic_2.jpg)
-Esta gráfica muestra la diferencia entre los ataques de tiburon en los USA, Australia y Sudáfrica, Estados Unidos al estar en el hemisfério norte la gráfica muestra una campana de Gauss, indicando que los meses con más temperatura son los que tienen más ataques, mientras que Sudáfrica y Australia al estár en el hemisferio Sur, la gráfica es una campana de Gauss invertida, ya que los meses de más calor son el invierno del hemisferio Norte.
+This graph shows the difference in shark attacks in the USA, Australia, and South Africa. The USA, being in the northern hemisphere, shows a bell curve, indicating that the warmer months have more attacks. Meanwhile, South Africa and Australia, being in the southern hemisphere, show an inverted bell curve, as the warmer months are during the northern hemisphere's winter.
 
-
-hipotesis: ¿Tiene algo que ver el género y la edad?
+Hypothesis: Does gender and age have an impact?
 ![graphic_3](./graphic_3.jpg)
-La gráfica muestra como hay un gran pico en los Adultos masculinos, esto puede ser debido a que hay más hombres que hacen deportes de riesgo como el surf, el submarinismo, etc.. estos deportes también son los Adultos los que lo practican.
+The graph shows a significant peak in adult males, which could be due to more men engaging in high-risk sports such as surfing and diving. These sports are also predominantly practiced by adults.
 
-
-hipotesis: ¿Qué país es el que tiene más porcentaje de mortalidad?
+Hypothesis: Which country has the highest mortality rate percentage?
 ![graphic_4](./graphic_4.jpg)
-Esta gráfica está hecha con los paises que tienen más de 25 casos, ya que en el dataset hay muchos paises con 1 caso de ataque y no tiene sentido meterlo en la gráfica.
-Para hacer más justo la comparación, el calculo de porcentáje de mortalidad, coge el total de los casos de fallecimiento, lo divide por el total y lo multiplica por 100, todo esto redondeado a dos decimales 
+This graph includes countries with more than 25 cases, as there are many countries in the dataset with only one attack, which doesn't make sense to include in the graph.
+To make the comparison fairer, the mortality rate percentage calculation takes the total number of fatalities, divides it by the total number of cases, and multiplies by 100, rounding to two decimal places.
